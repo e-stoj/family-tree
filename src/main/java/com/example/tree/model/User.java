@@ -1,5 +1,6 @@
 package com.example.tree.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ public class User {
     private Integer id;
     private String userName;
     private String password;
+    @JsonIgnore
     @OneToMany
     private List<Tree> trees;
 
