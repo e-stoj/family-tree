@@ -1,5 +1,6 @@
 package com.example.tree.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,26 +18,33 @@ public class Person {
     private Integer id;
     private String name;
     private String surname;
+    private String familySurname;
     @Enumerated(EnumType.STRING)
     private Gender gender;
     private LocalDate birthDate;
     private LocalDate deathDate;
     private boolean isAlive;
+    @JsonIgnore
     @ManyToOne
     private Person mother;
+    @JsonIgnore
     @ManyToOne
     private Person father;
+    @JsonIgnore
     @OneToMany
     private List<Person> children;
+    @JsonIgnore
     @OneToMany
     private List<Person> siblngs;
+    @JsonIgnore
     @OneToOne
     private Person spouse;
 
-    public Person(Integer id, String name, String surname, Gender gender, LocalDate birthDate, LocalDate deathDate, boolean isAlive) {
+    public Person(Integer id, String name, String surname, String familySurname, Gender gender, LocalDate birthDate, LocalDate deathDate, boolean isAlive) {
         this.id = id;
         this.name = name;
         this.surname = surname;
+        this.familySurname = familySurname;
         this.gender = gender;
         this.birthDate = birthDate;
         this.deathDate = deathDate;
