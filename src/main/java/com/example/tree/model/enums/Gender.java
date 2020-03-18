@@ -1,4 +1,4 @@
-package com.example.tree.model;
+package com.example.tree.model.enums;
 
 public enum Gender {
     MALE,

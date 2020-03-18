@@ -1,5 +1,6 @@
 package com.example.tree.model;
 
+import com.example.tree.model.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
