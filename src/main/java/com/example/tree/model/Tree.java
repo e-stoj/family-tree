@@ -1,15 +1,10 @@
 package com.example.tree.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-@Getter
-@Setter
 @Entity
 public class Tree {
 
@@ -26,5 +21,29 @@ public class Tree {
     }
 
     public Tree() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTreeName() {
+        return treeName;
+    }
+
+    public void setTreeName(String treeName) {
+        this.treeName = treeName;
+    }
+
+    public Person getMainPerson() {
+        return mainPerson;
+    }
+
+    public void setMainPerson(Person mainPerson) {
+        this.mainPerson = mainPerson;
     }
 }
