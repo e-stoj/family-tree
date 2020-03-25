@@ -3,6 +3,8 @@ package com.example.tree.repositories;
 import com.example.tree.model.User;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.Optional;
+
 public interface UserRepository extends CrudRepository<User, Integer> {
-    User findByUserName(String userName);
+    Optional<User> findByUserName(String userName);
 }

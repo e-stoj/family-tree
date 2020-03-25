@@ -7,7 +7,7 @@ import java.util.*;
 
 public interface UserService {
 
-    User createUser(User user);
+    User register(User user);
 
     User getUserById(Integer id);
 
