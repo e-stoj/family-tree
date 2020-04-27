@@ -1,26 +1,48 @@
 package com.example.tree.services.implementation;
 
 import com.example.tree.model.Person;
+import com.example.tree.repositories.PersonRepository;
 import com.example.tree.services.PersonService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public class PersonServiceImpl implements PersonService {
 
+    @Autowired
+    PersonRepository personRepository;
+
     @Override
-    public Person createPerson(Integer id) {
-        return null;
+    public Person createPerson(Person person) {
+        personRepository.save(person);
+        return person;
     }
 
     @Override
-    public Person addMother(Integer personId, Integer motherId) {
-        return null;
+    public Person addMother(Integer personId, Person mother) {
+        Person person = personRepository.findById(personId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
+        createPerson(mother);
+        person.setMother(mother);
+        List<Person> children = mother.getChildren();
+        children.add(person);
+        mother.setChildren(children);
+        personRepository.save(person);
+        personRepository.save(mother);
+        return person;
     }
 
     @Override
     public Person addFather(Integer personId, Integer fatherId) {
-        return null;
+        Person person = personRepository.findById(personId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
+        Person father = personRepository.findById(fatherId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
+        person.setFather(father);
+        List<Person> children = father.getChildren();
+        children.add(person);
+        father.setChildren(children);
+        personRepository.save(person);
+        personRepository.save(father);
+        return person;
     }
 
     @Override

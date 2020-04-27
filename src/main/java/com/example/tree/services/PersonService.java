@@ -7,9 +7,9 @@ import java.time.LocalDate;
 
 public interface PersonService {
 
-    Person createPerson(Integer id);
+    Person createPerson(Person person);
 
-    Person addMother(Integer personId, Integer motherId);
+    Person addMother(Integer personId, Person mother);
 
     Person addFather(Integer personId, Integer fatherId);
 
