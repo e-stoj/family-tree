@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserById(Integer id) {
+    public User getUserById(Long id) {
         return userRepository.findById(id).orElseThrow(() -> new RuntimeException("User doesn't exist"));
     }
 
@@ -42,13 +42,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Tree> getUserTreesList(Integer id) {
+    public List<Tree> getUserTreesList(Long id) {
         User user = userRepository.findById(id).orElseThrow(() -> new RuntimeException("User doesn't exist"));
         return user.getTrees();
     }
 
     @Override
-    public boolean deleteUser(Integer id) {
+    public boolean deleteUser(Long id) {
         return false;
     }
 }

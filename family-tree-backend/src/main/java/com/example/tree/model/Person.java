@@ -4,15 +4,13 @@ import com.example.tree.model.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.*;
 import java.time.LocalDate;
 
 @Entity
-public class Person {
+public class Person extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String name;
     private String surname;
     private String familySurname;
@@ -32,13 +30,12 @@ public class Person {
     private List<Person> children;
     @JsonIgnore
     @OneToMany
-    private List<Person> siblngs;
+    private List<Person> siblings;
     @JsonIgnore
     @OneToOne
     private Person spouse;
 
-    public Person(Integer id, String name, String surname, String familySurname, Gender gender, LocalDate birthDate, LocalDate deathDate, boolean isAlive) {
-        this.id = id;
+    public Person(String name, String surname, String familySurname, Gender gender, LocalDate birthDate, LocalDate deathDate, boolean isAlive) {
         this.name = name;
         this.surname = surname;
         this.familySurname = familySurname;
@@ -47,20 +44,12 @@ public class Person {
         this.deathDate = deathDate;
         this.isAlive = isAlive;
         this.children = new LinkedList<>();
-        this.siblngs = new LinkedList<>();
+        this.siblings = new LinkedList<>();
     }
 
     public Person() {
         this.children = new LinkedList<>();
-        this.siblngs = new LinkedList<>();
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
+        this.siblings = new LinkedList<>();
     }
 
     public String getName() {
@@ -143,12 +132,12 @@ public class Person {
         this.children = children;
     }
 
-    public List<Person> getSiblngs() {
-        return siblngs;
+    public List<Person> getSiblings() {
+        return siblings;
     }
 
-    public void setSiblngs(List<Person> siblngs) {
-        this.siblngs = siblngs;
+    public void setSiblings(List<Person> siblings) {
+        this.siblings = siblings;
     }
 
     public Person getSpouse() {

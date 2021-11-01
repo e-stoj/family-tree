@@ -9,13 +9,13 @@ public interface UserService {
 
     User register(User user);
 
-    User getUserById(Integer id);
+    User getUserById(Long id);
 
     User login(String username, String password);
 
-    List<Tree> getUserTreesList(Integer id);
+    List<Tree> getUserTreesList(Long id);
 
-    boolean deleteUser(Integer id);
+    boolean deleteUser(Long id);
 
 
 }

@@ -6,29 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Tree {
+public class Tree extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String treeName;
     @ManyToOne
     private Person mainPerson;
 
-    public Tree(Integer id, String treeName) {
-        this.id = id;
+    public Tree(String treeName) {
         this.treeName = treeName;
     }
 
     public Tree() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getTreeName() {

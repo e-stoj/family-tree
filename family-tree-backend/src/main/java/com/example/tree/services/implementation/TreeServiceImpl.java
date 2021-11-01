@@ -22,12 +22,12 @@ public class TreeServiceImpl implements TreeService {
     }
 
     @Override
-    public Tree getTreeById(Integer id) {
+    public Tree getTreeById(Long id) {
         return treeRepository.findById(id).orElseThrow(() -> new RuntimeException("Tree doesn't exist"));
     }
 
     @Override
-    public Person selectMainPerson(Integer treeId, Integer personId) {
+    public Person selectMainPerson(Long treeId, Long personId) {
         Tree tree = treeRepository.findById(treeId).orElseThrow(() -> new RuntimeException("Tree doesn't exist"));
         Person person = personRepository.findById(personId).orElseThrow(() -> new RuntimeException("Person doesn't exist"));
         tree.setMainPerson(person);
@@ -36,7 +36,7 @@ public class TreeServiceImpl implements TreeService {
     }
 
     @Override
-    public Tree renameTree(Integer treeId, String newName) {
+    public Tree renameTree(Long treeId, String newName) {
         Tree tree = treeRepository.findById(treeId).orElseThrow(() -> new RuntimeException("Tree doesn't exist"));
         tree.setTreeName(newName);
         treeRepository.save(tree);
@@ -44,7 +44,7 @@ public class TreeServiceImpl implements TreeService {
     }
 
     @Override
-    public boolean deleteTree(Integer id) {
+    public boolean deleteTree(Long id) {
         treeRepository.deleteById(id);
         return true;
     }

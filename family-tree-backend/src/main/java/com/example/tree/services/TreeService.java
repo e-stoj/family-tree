@@ -7,11 +7,11 @@ public interface TreeService {
 
     Tree createTree(Tree tree);
 
-    Tree getTreeById(Integer id);
+    Tree getTreeById(Long id);
 
-    Person selectMainPerson(Integer treeId, Integer personId);
+    Person selectMainPerson(Long treeId, Long personId);
 
-    Tree renameTree(Integer treeId, String newName);
+    Tree renameTree(Long treeId, String newName);
 
-    boolean deleteTree(Integer id);
+    boolean deleteTree(Long id);
 }

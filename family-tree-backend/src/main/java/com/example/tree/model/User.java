@@ -10,19 +10,15 @@ import java.util.*;
 
 
 @Entity
-public class User {
+public class User extends AbstractEntity {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String userName;
     private String password;
     @JsonIgnore
     @OneToMany
     private List<Tree> trees;
 
-    public User(Integer id, String userName, String password) {
-        this.id = id;
+    public User(String userName, String password) {
         this.userName = userName;
         this.password = password;
         this.trees = new LinkedList<>();
@@ -30,14 +26,6 @@ public class User {
 
     public User() {
         this.trees = new LinkedList<>();
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getUserName() {

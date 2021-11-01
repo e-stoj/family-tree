@@ -9,34 +9,34 @@ public interface PersonService {
 
     Person createPerson(Person person);
 
-    Person addMother(Integer personId, Person mother);
+    Person addMother(Long personId, Person mother);
 
-    Person addFather(Integer personId, Integer fatherId);
+    Person addFather(Long personId, Person father);
 
-    Person addChild(Integer personId, Integer childId);
+    Person addChild(Long personId, Person child);
 
-    Person addSibling(Integer personId, Integer siblingId);
+    Person addSibling(Long personId, Person sibling);
 
-    Person addSpouse(Integer personId, Integer spouseId);
+    Person addSpouse(Long personId, Person spouse);
 
-    Person setPersonDeathDate(Integer personId, LocalDate date);
+    Person setPersonDeathDate(Long personId, LocalDate date);
 
-    Person changeSurname(Integer personId, String newSurname);
+    Person changeSurname(Long personId, String newSurname);
 
-    Person editPerson(Integer oldPersonId, Person newPerson);
+    Person editPerson(Long oldPersonId, Person newPerson);
 
-    boolean deletePerson(Integer id);
+    boolean deletePerson(Long id);
 
-    Person getPerson(Integer id);
+    Person getPerson(Long id);
 
-    Person getMother(Integer personId);
+    Person getMother(Long personId);
 
-    Person getFather(Integer personId);
+    Person getFather(Long personId);
 
-    List<Person> getChildren(Integer personId);
+    List<Person> getChildren(Long personId);
 
-    List<Person> getSiblings(Integer personId);
+    List<Person> getSiblings(Long personId);
 
-    Person getSpouse(Integer personId);
+    Person getSpouse(Long personId);
 
 }

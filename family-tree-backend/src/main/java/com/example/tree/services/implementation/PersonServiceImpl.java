@@ -20,7 +20,7 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person addMother(Integer personId, Person mother) {
+    public Person addMother(Long personId, Person mother) {
         Person person = personRepository.findById(personId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
         createPerson(mother);
         person.setMother(mother);
@@ -33,9 +33,8 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person addFather(Integer personId, Integer fatherId) {
+    public Person addFather(Long personId, Person father) {
         Person person = personRepository.findById(personId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
-        Person father = personRepository.findById(fatherId).orElseThrow(() -> new RuntimeException("User doesn't exist"));
         person.setFather(father);
         List<Person> children = father.getChildren();
         children.add(person);
@@ -46,67 +45,67 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
-    public Person addChild(Integer personId, Integer childId) {
+    public Person addChild(Long personId, Person child) {
         return null;
     }
 
     @Override
-    public Person addSibling(Integer personId, Integer siblingId) {
+    public Person addSibling(Long personId, Person sibling) {
         return null;
     }
 
     @Override
-    public Person addSpouse(Integer personId, Integer spouseId) {
+    public Person addSpouse(Long personId, Person spouse) {
         return null;
     }
 
     @Override
-    public Person setPersonDeathDate(Integer personId, LocalDate date) {
+    public Person setPersonDeathDate(Long personId, LocalDate date) {
         return null;
     }
 
     @Override
-    public Person changeSurname(Integer personId, String newSurname) {
+    public Person changeSurname(Long personId, String newSurname) {
         return null;
     }
 
     @Override
-    public Person editPerson(Integer oldPersonId, Person newPerson) {
+    public Person editPerson(Long oldPersonId, Person newPerson) {
         return null;
     }
 
     @Override
-    public boolean deletePerson(Integer id) {
+    public boolean deletePerson(Long id) {
         return false;
     }
 
     @Override
-    public Person getPerson(Integer id) {
+    public Person getPerson(Long id) {
         return null;
     }
 
     @Override
-    public Person getMother(Integer personId) {
+    public Person getMother(Long personId) {
         return null;
     }
 
     @Override
-    public Person getFather(Integer personId) {
+    public Person getFather(Long personId) {
         return null;
     }
 
     @Override
-    public List<Person> getChildren(Integer personId) {
+    public List<Person> getChildren(Long personId) {
         return null;
     }
 
     @Override
-    public List<Person> getSiblings(Integer personId) {
+    public List<Person> getSiblings(Long personId) {
         return null;
     }
 
     @Override
-    public Person getSpouse(Integer personId) {
+    public Person getSpouse(Long personId) {
         return null;
     }
 }
