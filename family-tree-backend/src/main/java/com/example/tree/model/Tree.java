@@ -8,6 +8,9 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Tree extends AbstractEntity {
 
+    @Id
+    Long id;
+
     private String treeName;
     @ManyToOne
     private Person mainPerson;

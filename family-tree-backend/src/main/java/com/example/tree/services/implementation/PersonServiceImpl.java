@@ -4,10 +4,12 @@ import com.example.tree.model.Person;
 import com.example.tree.repositories.PersonRepository;
 import com.example.tree.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class PersonServiceImpl implements PersonService {
 
     @Autowired

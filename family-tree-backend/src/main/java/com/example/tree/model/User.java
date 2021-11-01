@@ -12,6 +12,9 @@ import java.util.*;
 @Entity
 public class User extends AbstractEntity {
 
+    @Id
+    Long id;
+
     private String userName;
     private String password;
     @JsonIgnore

@@ -4,12 +4,14 @@ import com.example.tree.model.enums.Gender;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
 import java.util.*;
 import java.time.LocalDate;
 
 @Entity
 public class Person extends AbstractEntity {
+
+    @Id
+    Long id;
 
     private String name;
     private String surname;

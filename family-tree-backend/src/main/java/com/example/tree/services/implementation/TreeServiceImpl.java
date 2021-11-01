@@ -6,7 +6,9 @@ import com.example.tree.repositories.PersonRepository;
 import com.example.tree.repositories.TreeRepository;
 import com.example.tree.services.TreeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class TreeServiceImpl implements TreeService {
 
     @Autowired
